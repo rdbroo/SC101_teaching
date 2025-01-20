@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>A Gentle Introduction to R, RStudio, and Descriptive Statistical Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Lab_Handout_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Lab_Handout_files/libs/quarto-html/quarto.js"></script>
+<script src="Lab_Handout_files/libs/quarto-html/popper.min.js"></script>
+<script src="Lab_Handout_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Lab_Handout_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Lab_Handout_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Lab_Handout_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Lab_Handout_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Lab_Handout_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Lab_Handout_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A Gentle Introduction to R, RStudio, and Descriptive Statistical Analysis</h1>
+<p class="subtitle lead">SC101: Researching Social Life, Session 2</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="part-one-introduction-to-r-rstudio" class="level1">
+<h1>PART ONE: INTRODUCTION TO ‘R’ &amp; ‘RSTUDIO’</h1>
+<section id="what-is-r-and-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-r-and-rstudio">What is R and RStudio?</h2>
+<p>RStudio is an integrated development environment (IDE) designed for working with R, a powerful programming language widely used for statistical computing, data analysis, and visualisation.</p>
+<ul>
+<li>It’s open source, meaning it’s free!</li>
+<li>Whether you are performing simple calculations or analysing complex social science datasets, RStudio streamlines the process and is widely used in academia and industry for its flexibility and open-source nature.</li>
+</ul>
+<section id="why-learn-r" class="level3">
+<h3 class="anchored" data-anchor-id="why-learn-r">Why learn R?</h3>
+<ul>
+<li><strong>Highly flexible</strong>: Allows advanced customisation.</li>
+<li><strong>Employability</strong>: Knowledge of R is a sought-after skill in research and industry.</li>
+</ul>
+</section>
+</section>
+<section id="how-to-start-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-start-rstudio">How to start RStudio?</h2>
+<p>RStudio is installed locally on University of Essex lab computers, can be downloaded onto your own personal computers, or accessed remotely from the university’s <a href="https://software.essex.ac.uk/login">Software Hub</a>.</p>
+<section id="to-open-rstudio-on-lab-computers" class="level3">
+<h3 class="anchored" data-anchor-id="to-open-rstudio-on-lab-computers">To open RStudio on lab computers:</h3>
+<ol type="1">
+<li>Click the start menu.</li>
+<li>Select ‘RStudio Local’.</li>
+</ol>
+<p>The logo will look like this:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/images.png" class="img-fluid figure-img" width="52"></p>
+</figure>
+</div>
+</section>
+<section id="to-download-r-and-rstudio-on-personal-computers" class="level3">
+<h3 class="anchored" data-anchor-id="to-download-r-and-rstudio-on-personal-computers">To download R and RStudio on personal computers:</h3>
+<section id="installing-r" class="level4">
+<h4 class="anchored" data-anchor-id="installing-r">Installing R:</h4>
+<p><strong>On MacOS:</strong> 1. Download the latest version from <a href="https://www.stats.bris.ac.uk/R/bin/macosx/">CRAN</a>. 2. Open the downloaded file and follow the instructions. 3. Locate R in the Applications folder.</p>
+<p><strong>On Windows PCs:</strong> 1. Download the latest version from <a href="https://www.stats.bris.ac.uk/R/bin/windows/base/">CRAN</a>. 2. Open the downloaded file and follow the instructions. 3. Locate R in the Start menu or Applications.</p>
+<p><strong>Note:</strong> You do not need to open R itself, as you will use R within RStudio.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learn More! What is the CRAN?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>CRAN stands for <strong>Comprehensive R Archive Network</strong>. It is a network of servers and repositories around the world that store and distribute R software, R packages, documentation, and related materials. CRAN is an essential resource for R users and developers, and it ensures that the R ecosystem is accessible, reliable, and well-maintained.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="installing-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="installing-rstudio">Installing RStudio:</h4>
+<p><strong>For both MacOS and Windows PCs:</strong> 1. Visit the <a href="https://posit.co/">RStudio website</a>. 2. Download the desktop version. 3. Follow installation instructions. 4. Open RStudio from your Applications folder or Start menu.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Troubleshooting
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Make sure you’re downloading the correct version of RStudio.</strong> Ensure you are downloading R for the correct operating system (Windows, MacOS or Linux).</p></li>
+<li><p><strong>After this point, the issues all get a bit technical.</strong> We recommend speaking to your class tutor in the first instance, and then contacting the Essex IT Helpdesk. You can create a support request <a href="https://www.essex.ac.uk/student/it-services/support">here</a>. Allow them a few days to respond, and in the meantime, use the <a href="https://www.essex.ac.uk/student/it-services/computers-on-campus">lab computers</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Planning for your Moodle Quiz in Week 21
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You will need to access RStudio for the Moodle Quiz in Week 21, so consider where you will be for that week. If you’re not on campus, consider downloading R and RStudio onto your own device or access through the <a href="https://software.essex.ac.uk/login">Software Hub</a>.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="part-two-familiarising-yourself-with-rstudio" class="level1">
+<h1>PART TWO: FAMILIARISING YOURSELF WITH RSTUDIO</h1>
+<section id="rstudio-layout" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-layout">RStudio Layout</h2>
+<p>When opening RStudio for the first time, you’ll see three main panes (see, Image 1):</p>
+<ol type="1">
+<li><strong>Console</strong>: Displays results and output from R code. More recent output will appear at the bottom. Old outputs will remain, unless you clear with the brush icon.</li>
+<li><strong>Environment</strong>: Contains datasets, variables, and command history.</li>
+<li><strong>Utilities</strong>: Displays files, visualisations, packages, and help documentation.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screenshot%202025-01-15%20at%2015.22.00-01.png" class="img-fluid figure-img" width="678"></p>
+</figure>
+</div>
+<section id="where-do-you-write-your-code" class="level3">
+<h3 class="anchored" data-anchor-id="where-do-you-write-your-code">Where do you write your code?</h3>
+<p>You can type commands directly into the <code>Console</code>, but this approach has its limitations. The main drawback is that the Console does not allow you to save your work unless you manually copy and paste the commands, which can be time-consuming and inefficient.</p>
+<p>Instead, use an <code>R Script</code> for better organisation and reproducibility.</p>
+<section id="to-create-a-script" class="level4">
+<h4 class="anchored" data-anchor-id="to-create-a-script">To create a script:</h4>
+<ol type="1">
+<li>Navigate to <code>File &gt; New File &gt; R Script</code>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screenshot%202025-01-15%20at%2015.14.08-01.png" class="img-fluid figure-img" width="639"></p>
+</figure>
+</div>
+<p>When you open a script, it will appear in the top-left pane of RStudio. While you can have multiple scripts open at the same time, it’s usually best to focus on one to keep things organised. Each open script or dataset will appear as a tab in this pane, allowing you to easily switch between them as needed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screenshot%202025-01-15%20at%2015.23.55.png" class="img-fluid figure-img" width="699"></p>
+</figure>
+</div>
+</section>
+<section id="structuring-your-script" class="level4">
+<h4 class="anchored" data-anchor-id="structuring-your-script">Structuring your script:</h4>
+<p>It’s essential to structure your scripts in a consistent and coherent way. This becomes especially important if you’re conducting data analysis for a publication, as it’s best practice to ensure your code is <em>reproducible</em>. Reproducibility means that another researcher, given access to your data, should be able to run your script and obtain the same results. This principle is a cornerstone of scientific integrity—and you’re a scientist, after all!</p>
+<ul>
+<li>Add comments with <code>#</code> to explain your code. On a single line, anything that follows a <code>#</code> won’t run as code. You’ll notice that comments appear in green too, making them easy to identify. Without <code>#</code> R will interpret the text as code, resulting in an error message because it won’t understand what you mean.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="when-rstudio-doesnt-understand.-try-it-yourself" class="level2 panel-heading panel panel-blue">
+<h2 class="panel-heading anchored" data-anchor-id="when-rstudio-doesnt-understand.-try-it-yourself">When RStudio doesn’t understand. Try it yourself!</h2>
+<ol type="1">
+<li><strong>Type the following directly into your R Script:</strong></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>This is a comment, and it won<span class="st">'t run as code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Then, click the <img src="images/Screenshot%202025-01-15%20at%2015.44.27.png" class="img-fluid" width="59"> button. Alternatively, you can click CTRL+Enter.</strong></li>
+</ol>
+<p>You’ll get an error message in the Console.</p>
+<ol start="3" type="1">
+<li><strong>Now, try again, but this time add a <code>#</code> to the start of the line:</strong></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment, and it won't run as code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><strong>Again, click the <img src="images/Screenshot%202025-01-15%20at%2015.44.27-01.png" class="img-fluid" width="53"> button or press CTRL+Enter.</strong></li>
+</ol>
+<p>Hopefully, this time the error message doesn’t appear.</p>
+</section>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Understanding Console Output in RStudio
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="ready-state" class="level3">
+<h3 class="anchored" data-anchor-id="ready-state">Ready State</h3>
+<p>The <strong>blue arrow</strong> <img src="images/Screenshot%202025-01-15%20at%2015.42.58.png" width="15" height="12"> in the RStudio console indicates that the console is ready for new commands. When you see this symbol, the previous code execution has finished successfully.</p>
+</section>
+<section id="busy-state" class="level3">
+<h3 class="anchored" data-anchor-id="busy-state">Busy State</h3>
+<p>If the <strong>blue arrow</strong> <img src="images/Screenshot%202025-01-15%20at%2015.42.58-01.png" width="14" height="12"> is not visible, the console is still busy running the current code.</p>
+<p>During this time Monitor the execution progress. If necessary, interrupt the process by clicking the stop button in the RStudio toolbar.</p>
+</section>
+<section id="the-order-of-the-console-output" class="level1">
+<h1>The Order of the Console Output</h1>
+<p>New console output will appear at the bottom, keeping your workflow uninterrupted. Previous outputs will stay intact, providing a comprehensive view of your progress—unless you choose to clear the slate with a simple click of the brush icon <img src="images/Screenshot%202025-01-15%20at%2015.40.28-01.png" width="18" height="17">.</p>
+<section id="tips-for-smooth-console-use" class="level3">
+<h3 class="anchored" data-anchor-id="tips-for-smooth-console-use">Tips for Smooth Console Use</h3>
+<ul>
+<li>Keep an eye on the console output to understand what your code is doing.</li>
+<li>Use comments (<code>#</code>) in your scripts to document the purpose of your commands, making debugging easier.</li>
+<li>Clear the console as needed by using the brush icon <img src="images/Screenshot%202025-01-15%20at%2015.40.28.png" width="16" height="16"> for a cleaner workspace.</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+</div>
+<p>To make your scripts readable and clear, focus on maintaining a well-organised structure. A great place to start is by adding some key details at the beginning of your script. These details act as a “header” and provide important context for anyone reading or using your code.</p>
+<p><strong>Example of a script header:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Script Title: Week 17 - SC101 - Descriptive Statistics</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: Your Name</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Date: 2025-01-15</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Description: This script analyses survey data to identify trends in responses.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R Scripts should be set up in a sequential manner. So, the commands and functions that you write should not depend on code that doesn’t appear until later in the script.</p>
+<p>Spend some time now adding some structure to your R Script, with subsections. Typically, you would have a ‘loading necessary libraries’ section at the beginning (we’ll discuss libraries soon), as well as a ‘Data’ subsection’.</p>
+<p>It should look something like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Script Title: Week 17 - SC101 - Descriptive Statistics</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: Your Name</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Date: 2025-01-15</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Description: This script analyses survey data to identify trends in responses.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Download Packages</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################################################################################################################################################</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Download Data</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################################################################################################################################################</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive Statistics</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################################################################################################################################################</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="part-three-organising-and-saving-files" class="level1">
+<h1>PART THREE: ORGANISING AND SAVING FILES</h1>
+<p>Like word documents, scripts need to be saved. To do so, navigate to <code>File &gt; Save</code>, and then find the folder where you would like to save. You should save your file regularly, as RStudio sometimes crashes!</p>
+<p>We’ve already discussed the importance of keeping scripts well-organised and properly annotated with clear, legible notes. However, it’s equally important to maintain a coherent and organised folder structure for all your files.</p>
+<p>Over time, you’ll likely accumulate a substantial collection of scripts, data files, and other project-related materials. Without a clear system, it can become challenging to locate a specific file-especially one you wrote three years ago. Imagine needing to revisit an old analysis or, as a researcher, having to defend your work to a sceptical peer questioning the integrity of your published results.</p>
+<section id="best-practices-for-file-naming-and-organisation" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices-for-file-naming-and-organisation">Best Practices for file naming and organisation</h3>
+<ol type="1">
+<li>Use clear and consistent file names (e.g., <code>survey_analysis_2025.R</code>).</li>
+<li>Maintain a logical folder structure, keeping related files grouped together:
+<ul>
+<li>Scripts</li>
+<li>Data</li>
+<li>Outputs</li>
+</ul></li>
+</ol>
+<p>Consider creating folders for each <em>Year of Study</em> and <em>Module</em>. Within these, you can further categorise your materials using sub-folders for different components. For example, under a folder named <em>Seminar and Lab Notes</em>, you might create sub-folders for scripts, data and notes.</p>
+</section>
+<section id="now-save-your-script" class="level3">
+<h3 class="anchored" data-anchor-id="now-save-your-script">Now, Save your script!</h3>
+<p>Navigate to <code>File &gt; Save As</code>, and store it in a designated folder.</p>
+<hr>
+</section>
+</section>
+<section id="part-four-basic-functions-and-commands-in-rstudio" class="level1">
+<h1>PART FOUR: BASIC FUNCTIONS AND COMMANDS IN RSTUDIO</h1>
+<p>You’ve made your first R Script, and you’ve saved it somewhere that is accessible. It’s now time to write some ‘R code’. I bet you can’t contain your excitement!</p>
+<section id="r-as-a-calculator" class="level2">
+<h2 class="anchored" data-anchor-id="r-as-a-calculator">R as a Calculator</h2>
+<p>R is a powerful calculator, so let’s do some arithmetic.</p>
+<p>Firstly, give the section a new sub-heading, like <code># Getting to know R</code>. I.e.,:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting to know R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In your script, type the following:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic addition</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To run only this line of code, highlight the code (make sure you highlight all of it, otherwise it won’t run) and click <img src="images/Screenshot%202025-01-15%20at%2015.44.27-02.png" width="61" height="19"></p>
+<p>Your output should appear in the Console. Great, nice an easy, right?</p>
+<p>Now, try running following code:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intentional error to observe messages</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span>] <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This time you’ll get an <strong>error message</strong> in the <code>Console</code> .</p>
+<p>Delete the square bracket ] and run again.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Error and Warning Messages
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Error messages in R appear in the <code>Console</code> in red and typically start with the word <strong>“Error”</strong>, followed by a brief description of the issue. While these messages can provide some insight into what went wrong, they may not always be immediately clear. For example, in the case above, the error indicates that the issue stems from the addition of an unexpected ] symbol.</p>
+<p>If the message isn’t clear, don’t worry-it’s a normal part of coding! You can often resolve the problem by:</p>
+<ol type="1">
+<li><p>Carefully rereading your code to check for typos or syntax errors.</p></li>
+<li><p>Searching the error message on Google or using generative AI tools to find explanations and solutions.</p></li>
+<li><p>Asking your class teacher, once you’ve exhausted the above.</p></li>
+</ol>
+<p>With practice, you’ll get better at interpreting error messages and debugging your code.</p>
+<p>Error messages are different from <strong>‘warning messages’</strong>. These are alerts about potential issues in your code. Unlike errors, warnings do not stop the code from running; you will still get an output. However, the output might not be what you intended, so it’s worth reviewing the warning to ensure everything is working as expected.</p>
+</div>
+</div>
+</div>
+<p>Now, type the code for following sums and make a note of the answers:</p>
+<ol type="1">
+<li><p>10 /18</p></li>
+<li><p>(5 * 3) / 2</p></li>
+<li><p>(20 / 4) + 2 * 3</p></li>
+</ol>
+<p>What are the results?</p>
+<p><strong>These are the standard operations in R:</strong></p>
+<section id="common-operators" class="level3">
+<h3 class="anchored" data-anchor-id="common-operators">Common Operators</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>R Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Addition</td>
+<td>+</td>
+</tr>
+<tr class="even">
+<td>Subtraction</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Multiplication</td>
+<td>*</td>
+</tr>
+<tr class="even">
+<td>Division</td>
+<td>/</td>
+</tr>
+<tr class="odd">
+<td>Power Operator</td>
+<td>^</td>
+</tr>
+</tbody>
+</table>
+<p>You probably won’t need most of these operators, but they may be useful in future years (for example, when combining variables). For now, don’t worry.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="part-five-descriptive-statistics" class="level1">
+<h1>PART FIVE: DESCRIPTIVE STATISTICS</h1>
+<section id="working-with-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-datasets">Working with Datasets</h2>
+<p>In this course, and throughout your study, we’ll be using ‘datasets’ or ‘data frames’. As you’re aware from the lecture, a dataset is a structured collection of data. Typically, it is organised into rows and columns, that represents information about variables and observations. It is a fundamental unit of data analysis and is used to store, organise, and analyse data in a consistent format.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Structure of a Dataset
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Throughout this course (and across the methods modules in this department) we’ll primarily be using wide form datasets.</p>
+<p>A <strong>wide-form dataset</strong> is a data structure in which each row typically represents an individual observation (e.g., a person, a study participant, a specific case), and the columns contain multiple variables for that observation.</p>
+<p><strong>In a wide-form dataset:</strong></p>
+<ul>
+<li><p><strong>Rows:</strong> Represent individual observations or cases (e.g., people, places, events).</p></li>
+<li><p><strong>Columns:</strong> Represent variables, which are characteristics or attributes measured for each observation (e.g., age, income, weight).</p></li>
+<li><p><strong>Cells:</strong> Contain specific values for a given variable and observation.</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Participant ID</th>
+<th>Annual_Income</th>
+<th>Age</th>
+<th>Occupation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>328192</td>
+<td>25000</td>
+<td>32</td>
+<td>Researcher</td>
+</tr>
+<tr class="even">
+<td>324235</td>
+<td>78000</td>
+<td>29</td>
+<td>Lawyer</td>
+</tr>
+<tr class="odd">
+<td>216343</td>
+<td>19000</td>
+<td>18</td>
+<td>Poet</td>
+</tr>
+<tr class="even">
+<td>124234</td>
+<td>23000</td>
+<td>25</td>
+<td>Musician</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>R comes with built-in datasets. For the remainder of this session, we’ll use <code>USArrests</code>, a dataset with statistics on arrests in the U.S. in 1973.</p>
+<p>Let’s load our first dataset.</p>
+<section id="loading-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="loading-the-dataset">Loading the Dataset</h3>
+<p>Start by running the following code:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"USArrests"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View first few rows</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(USArrests)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore dataset structure</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(USArrests)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, we first download the dataset using <code>data()</code>. <code>USArrests</code> is the name of the dataset.</p>
+<p>Then, view the first few rows of data using the <code>head()</code> function. We can have a look at the dataset structure using the <code>str()</code> function. These functions allow us to have a quick explore of the dataset to see what it looks like.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What on Earth are Functions?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><strong>Good question. Take some time to read this section, as it’s really important!</strong></p>
+<p>Functions in R are reusable blocks of code designed to perform specific tasks. They take inputs (called arguments), process them, and return outputs. Functions simplify repetitive tasks and make your code more efficient.</p>
+<p><code>head()</code>, <code>str</code>(), <code>data()</code> are all functions.</p>
+<p>For each function, the arguments (the inputs) are contained within the brackets.</p>
+<p>So, in the previous code segment the function <code>head()</code> takes the dataset <code>USArrests</code> and presents the first few rows of the dataset USArrests. That’s what the <code>head()</code> function is designed to do.</p>
+<p>There are many functions already in R (what we call, ‘base R’ functions), and you can create own functions too (but let’s not get ahead of ourselves). In a lot of cases you will need to download functions developed by other people. New functions are made by developers and contained in <code>Packages</code>.</p>
+<p><code>Packages</code> are collections of functions, datasets, and documentation bundled together to extend R’s capabilities. It’s why R is so darn good! Packages make R highly versatile for data analysis, visualisation, machine learning, and more. Packages are typically stored in the CRAN, but can also be found on Github and in other repositories.</p>
+<p>To install packages (and hence get amazing new functions to do wild new things), we can run use the <code>install.packages()</code> function. I know, it’s a bit confusing, but we need functions to get functions.</p>
+<p>So, to download a new package we would firstly run:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We swap out ‘package_name’ for the name of the package, of course. <em>Note, you need to use the double quotation marks, as it won’t work without them.</em></p>
+<p>Then, to use the package, we would use the function <code>library()</code>, with the package name contained within the brackets, like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(package_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So, a complete example for the package <code>ggplot</code> ggplot would be:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.package</span>(<span class="st">"ggplot2) # download the ggplot package</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">library(ggplot) # make it usable within this R session</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Packages</code> need updating periodically to ensure you have access to the latest features, bug fixed and updates. You can do this using the following code:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>() <span class="co"># this will update all packages</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>) <span class="co"># change 'package_name' for the package name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importing Data into RStudio
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We’re not importing a dataset into R today. However, for real-world research, you wouldn’t use an ‘inbuilt’ dataset, but would instead import real data. The code for this depends on the type of data file you’ll use.</p>
+<p><strong>For CSV Files (files ending with ‘.csv’):</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"path/to/your/file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>For Excel Files (.xlsx):</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"path/to/your/file.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Sheet1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>You’ll notice that we first download a package called <code>readxl</code>, this is because base R doesn’t allow us to important Excel files, so we have to download some new functions that are in a different package.</em></p>
+<p><strong>For Stata Files (.dta):</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"path/to/your/file.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Again, we have to download a new package called <code>haven</code> to import .dta and .sav files.</em></p>
+<p><strong>For SPSS Files (.sav):</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"path/to/your/file.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>For R Data (.rds) Files:</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"path/to/your/file.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll need to adjust the file path and file name contained with the brackets. We also place each dataset into an data frame object called ‘data’. You could call it anything, but data is most intuitive. If you import it without creating a new data object (i.e., without including <code>data &lt;-</code>), then the dataset will be imported, but will retain it’s original file name.</p>
+<p>There are other data file types too, but these are the common ones. SPSS, STATA are alternative software programmes used for statistical analysis. They each have their own strengths and weaknesses, but we prefer RStudio!</p>
+<p><strong>Cheat!</strong> Instead of writing the code, you can head to <code>File</code>, then <code>Import Dataset</code>, and then browse to find the dataset. Or, if it’s a .rds file, you can head to <code>File</code>, then <code>Open File</code>.</p>
+</div>
+</div>
+</div>
+<p>You’ll notice the data frame is listed under <code>Data</code> in the <code>Environment</code> window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Picture%201.png" class="img-fluid figure-img" width="563"></p>
+</figure>
+</div>
+<p>If you click on the little table symbol <img src="images/Screenshot%202025-01-15%20at%2020.00.37.png" width="19" height="17"> on the right hand side of the dataset listed in your Environment you can open the spreadsheet as a new tab in the top-left (beside your script). The spreadsheet should look like the below, except with additional rows.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/photo.png" class="img-fluid figure-img" width="578"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="some-initial-data-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="some-initial-data-exploration">Some initial data exploration</h2>
+<p>It’s useful to do some initial exploration of the dataset.</p>
+<p>We’ve already used <code>head()</code> and <code>str()</code> to view the first rows in the dataset and to view its structure.</p>
+<p>To get some useful information about the dataset, include the description, format (incl.&nbsp;the variables within it), the data source and links to more information, use the following:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>?USArrests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will produce some basic information about the dataset in the <code>Utilities</code> window (bottom right panel).</p>
+<p>“This data set contains statistics, in arrests per 100,000 residents for assault, murder, and rape in each of the 50 US states in 1973. Also given is the percent of the population living in urban areas.”</p>
+<p>Have a read, and answer the following questions:<br>
+Now, answer the following questions:</p>
+<ol type="1">
+<li>What variables are included in the dataset?</li>
+<li>What do each of the variables represent and how are they measured?</li>
+<li>What does each row of the dataset refer to?</li>
+</ol>
+</section>
+<section id="descriptive-statistics-for-arrests-for-murder" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics-for-arrests-for-murder">Descriptive Statistics for ‘Arrests for Murder’</h2>
+<p>Say, as a criminologist we’re interested in arrests for murder across the United States in 1973. It would be useful to initially produce some summary statistics for this variable.</p>
+<p>We can use the <code>summary()</code> function to produce some descriptive statistics (incl.&nbsp;the mean, median, range and the interquartile range) for this variable. The code will look like this:</p>
+<p>For the variable <code>Murder</code>, we can use this code:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(USArrests<span class="sc">$</span>Murder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll notice here the inclusion of the <code>$</code> sign. The sign is used to select a variable. We’re essentially saying apply the the <code>summary()</code> function to the <code>Murder</code> variable in the <code>USArrests</code> dataset. If we don’t specify the murder variable (with <code>$Murder</code>), summary statistics for all variables will be produced.</p>
+<p>Note, R is case sensitive! Correctly capitalise <code>Murder</code> and <code>USArrests</code>, otherwise you’ll get an error message!</p>
+<p>Using the <code>summary()</code> function for variable <code>Murder</code> should provide the following output:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/results.png" class="img-fluid figure-img" width="540"></p>
+</figure>
+</div>
+<p>We can alternatively produce the mean using the <code>mean()</code> function:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>USArrests)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The mean tells us that the number of arrests for murder in the United States in 1973 is 7.788 per 100,000 people on average. The range is indicated by the difference between the minimum and maximum number, so the range is between 0.8 and 17.4. The median is 7.25.</p>
+<p>So, we’ve got some measures of central tendency (mean and median) and some measures of dispersion (Interquartile range and range). The interquartile range is the distance between the 1st quartile (4.075) and the 3rd quartile (11.250). The range is the distance between the minimum value (0.8) and the maximum value (17.4).</p>
+<p>What about the mode? Well, there isn’t an inbuilt function to produce the mode, but there is one in the <code>statip</code> package, called <code>mfv()</code> (which standards for ‘most frequent value’). So, let’s install the <code>statip</code> package using this code:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"statip"</span>) <span class="co"># install package</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statip) <span class="co"># lets make it usable in this R session</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we can use the <code>mfv()</code> function to obtain the mode for number of arrests for murder:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(USArrests<span class="sc">$</span>Murder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This should produce the following output:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screenshot%202025-01-15%20at%2020.59.21.png" class="img-fluid figure-img" width="418"></p>
+</figure>
+</div>
+<p>This dataset is multi-modal, meaning there are multiple modes. That is, the seven values above all appear equally frequently in the data.</p>
+<p>Great. So far, so good. Let’s getting one more descriptive statistic, the standard deviation. There is a base R function for the standard deviation, <code>sd()</code>. So, let’s find out the standard deviation for arrests for murder in the USA:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(USArrests<span class="sc">$</span>Murder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This should produce the following output:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screenshot%202025-01-15%20at%2021.03.23.png" class="img-fluid figure-img" width="96"></p>
+</figure>
+</div>
+<p>Given that the standard deviation is quite large (it’s over half the size of the mean), it indicates a high degree of variability in the data. This suggests that the number of 6,arrests for murder in many states deviates significantly from the overall mean across the U.S. In other words, the murder arrest rates are not tightly clustered around the mean but are spread out, with some states having much lower or much higher rates than the national average.</p>
+<p>So, we’ve reduced the data down to some ‘descriptive statistics’ that tell us quite a bit about the arrests for murder in the USA in 1973. Let’s put them in a nice neat table - R doesn’t do this for you (at least not automatically), so let’s put just use Microsoft Word to create a nice table.</p>
+<p><strong>Descriptive Statistics for Number of Arrests for Murder in the USA in 1973</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Mean</th>
+<th><strong>7.788</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Median</strong></td>
+<td>7.250</td>
+</tr>
+<tr class="even">
+<td><strong>Mode</strong></td>
+<td>2.1, 2.2, 2.6, 6, 9, 13.2, 15.4</td>
+</tr>
+<tr class="odd">
+<td><strong>Range</strong></td>
+<td>0.8 - 17.4</td>
+</tr>
+<tr class="even">
+<td><strong>Interquartile Range</strong></td>
+<td>4.08 - 11.25</td>
+</tr>
+<tr class="odd">
+<td><strong>Standard Deviation</strong></td>
+<td>4.36</td>
+</tr>
+</tbody>
+</table>
+<p><em>Notice, I’ve rounded to two decimal-places, to keep it clean.</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+# Understanding the Median in relation to the Mean
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As the median is less than the mean, it suggests that the data is moderately right-skewed, suggesting the mean is being pulled up by more extreme high values. If the median was greater than the mean, it would mean the mean is being pulled down by extreme low values. Most states have arrest rates close to the median (7.250), but a few states with very high rates push the mean higher. This distribution highlights the inequality in murder arrest rates across states in 1973.</p>
+</div>
+</div>
+</div>
+<section id="visualising-data" class="level3">
+<h3 class="anchored" data-anchor-id="visualising-data">Visualising Data</h3>
+<p>Finally, it’s useful to visualise the distribution. We can do so using a histogram. To create a histogram, use the following code:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(USArrests<span class="sc">$</span>Murder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will produce the following graph under the <code>Plots</code> tab of the <code>Utilities</code> window:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rplot02.jpeg" class="img-fluid figure-img" width="593"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Making our Histogram Snazzier
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We can make our histogram look at lot nicer by chaining the title, the x-axis label and adding some colour. To achieve this, we can add additional arguments within the parentheses (the brackets).</p>
+<p>To add a title, we can use the <code>mean</code> argument. To add an a-axis label, we can use the <code>xlab</code> function. To change the colour of the bars, we can use the <code>col</code> function.</p>
+<p>Let’s do this now:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(USArrests<span class="sc">$</span>Murder, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histogram of Murder Arrests in the USA (1973)"</span>, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Arrests per 100,000"</span>, </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"blue"</span>)  <span class="co"># Change 'blue' to any desired color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, the histogram should look like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rplot04.jpeg" class="img-fluid figure-img" width="583"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The Y-axis shows the frequency of states, with the x-axis showing the number of murder arrests per 100,000 people. It is slightly right skewed. This means that the tails of the distribution are long on the right side. Most states have lower to moderate murder rates (of around 0-10), but there are a few states with much higher rates (10-15), which pull the mean upward. The highest frequency of states seems to fall between <strong>0 and 5</strong>, indicating that most states had relatively low murder arrest rates in 1973.</p>
+<p><strong>Now, consider the following statistics:</strong></p>
+<ol type="1">
+<li><p>What do these descriptive statistics tell us about arrests for murder in the USA in 1973?</p></li>
+<li><p>Why do you think there may be an uneven distribution of murder rates per 100,000 people in the US in 1973.</p></li>
+</ol>
+<p>Finally, try to produce these descriptive statistics for arrests for <code>Assault.</code></p>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
